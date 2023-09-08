@@ -1,3 +1,5 @@
+#http://localhost:5005/htmlFile
+
 version: "3"
 services:
   web:
@@ -5,13 +7,14 @@ services:
     volumes:
       - ./flask:/app
     ports:
-      - 5000:5000
+      - 5005:5000
     links:
       - db
     tty: true
 
   db:
     image: mysql:5.7
+    platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: flask
