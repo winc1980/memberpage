@@ -19,13 +19,6 @@ cursor = conn.cursor()
 def index():
     return render_template('index.html',)
 
-# データベース接続
-conn = mysql.connector.connect(
-    host="memberpage-db-1",
-    user="root",
-    password="root",
-    database="flask"
-)
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -49,7 +42,7 @@ def html_page():
     #data_dict列
     data_dict = []
     data_dict_list = []
-    cursor.execute("SELECT * FROM profile")
+    cursor.execute("SELECT * FROM members_table")
     for row in cursor.fetchall():
         data_dict = {
             "name": row[0],
