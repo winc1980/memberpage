@@ -7,4 +7,4 @@ CREATE TABLE `profile` (
 	`img` TEXT
 );
 
-insert into profile values('Jun', 'Kawabata', '競プロ、データサイエンスチーム', '早稲田大学人間科学部', '')
+insert into profile values('Fuma', 'Suzuki', 'HPチーム', '早稲田大学社会科学部', '')

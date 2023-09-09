@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="../static/css/profile_card.css" media="all">
     </head>
     <body>
+        {% for global_dict in global_dict_list %}
         <div class="card">
             <div class="card_contents">
                 <div class="card_left">
@@ -21,5 +22,6 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
     </body>
 </html>
