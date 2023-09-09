@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello japan'
+    my_variable = "Здравствуйте, Flask!"
+    return render_template('index.html', greeting=my_variable)
 
 @app.route("/htmlFile")
 def html_page():
