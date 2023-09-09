@@ -9,6 +9,8 @@ services:
     links:
       - db
     tty: true
+    networks:
+      - app-net
 
   db:
     image: mysql:5.7
@@ -27,3 +29,9 @@ services:
       - ./db/log:/var/log/mysql
     ports:
       - 3306:3306
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge

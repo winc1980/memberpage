@@ -2,7 +2,7 @@ import mysql.connector
 
 # データベース接続
 conn = mysql.connector.connect(
-    host="127.0.0.1:3306",
+    host="memberpage-db-1",
     user="root",
     password="root",
     database="flask"
