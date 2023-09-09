@@ -8,14 +8,16 @@ app = Flask(__name__)
 def index():
     my_variable = "こんにちは、Flask!"
     return render_template('index.html', greeting=my_variable)
+    
 
 @app.route("/htmlFile")
 def html_page():
-    local_name = "鈴木"
-    local_team = "HPチーム"
-    local_uni = "早稲田大学"
-    local_intro = "HPチームリーダーです。"
-    return render_template('profile_card.html', name=local_name, team=local_team, uni=local_uni, intro=local_intro)
+    local_dict = {}
+    local_dict["name"] = "鈴木風真"
+    local_dict["team"] = "HPチーム"
+    local_dict["uni"] = "早稲田大学"
+    local_dict["intro"] = "HPチームリーダーです。"
+    return render_template('profile_card.html',global_dict=local_dict)
 
 if __name__ == '__main__':
     app.debug = True
