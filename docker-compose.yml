@@ -1,5 +1,3 @@
-#http://localhost:5005/htmlFile
-
 version: "3"
 services:
   web:

@@ -6,3 +6,5 @@ CREATE TABLE `profile` (
 	`self_intro` TEXT,
 	`img` TEXT
 );
+
+insert into profile values('Jun', 'Kawabata', '競プロ、データサイエンスチーム', '早稲田大学人間科学部', '')
