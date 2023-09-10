@@ -15,10 +15,26 @@ app = Flask(__name__)
 
 cursor = conn.cursor()
 
+global_dict = []
+
 @app.route('/')
 def index():
-    return render_template('index.html',)
+    #data_dict列
+    data_dict = []
+    data_dict_list = []
+    global_dict = []
+    cursor.execute("SELECT * FROM members_table")
+    for row in cursor.fetchall():
+        data_dict = {
+            "name": row[0],
+            "team": row[1],
+            "uni": row[2],
+            "intro": row[3],
+        }
+        data_dict_list.append(data_dict)
+        print(data_dict)
 
+    return render_template('index.html',global_dict_list=data_dict_list)
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -42,6 +58,7 @@ def html_page():
     #data_dict列
     data_dict = []
     data_dict_list = []
+    global_dict = []
     cursor.execute("SELECT * FROM members_table")
     for row in cursor.fetchall():
         data_dict = {

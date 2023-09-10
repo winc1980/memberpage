@@ -61,20 +61,22 @@
                         <p class="teamName">HPチーム</p>
                     </div>
                     <div class="profileHpBoxes">
+                        {% for global_dict in global_dict_list %}
                         <div class="profile_box">
                             <div class="image">
                                 <img src="">
                             </div>
                             <div class="profile_texts">
-                                <h1>名前　名前</h1>
+                                <h1>{{global_dict["name"]}}</h1>
                                 <div class="flex-wrapper">
                                     <h2 class="team">HPチーム</h2>
                                     <h2>メンバー</h2>
                                 </div>
-                                <h3>早稲田大学　基幹理工学部</h3>
+                                <h3>{{global_dict["uni"]}}</h3>
                                 <button>詳細</button>
                             </div>
                         </div>
+                        {% endfor %}
                         <!-- カードここから -->
                         <div id="mask" class="hidden"></div>
                         <section id="modal" class="hidden">
@@ -82,12 +84,12 @@
                                 <div class="card_contents">
                                     <div class="card_left">
                                         <img url="">
-                                        <h2>名前　名前</h2>
+                                        <h2></h2>
                                     </div>
                                     <div class="card_right">
                                         <h3>役職/所属チーム</h3>
-                                        <h3>早稲田大学基幹理工学部</h3>
-                                        <p>テキストテキストテキスト<br>テキストテキストテキスト<br>テキストテキストテキスト</p>
+                                        <h3></h3>
+                                        <p></p>
                                     </div>
                                 </div>
                             </div>
@@ -98,12 +100,12 @@
                                 <img src="">
                             </div>
                             <div class="profile_texts">
-                                <h1>名前　名前</h1>
+                                <h1></h1>
                                 <div class="flex-wrapper">
                                     <h2 class="team">HPチーム</h2>
                                     <h2>メンバー</h2>
                                 </div>
-                                <h3>早稲田大学　基幹理工学部</h3>
+                                <h3></h3>
                                 <button>詳細</button>
                             </div>
                         </div>
