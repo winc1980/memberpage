@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request
 import mysql.connector
+import base64
 
 conn = mysql.connector.connect(
     host="memberpage-db-1",
@@ -28,13 +29,15 @@ def index():
         data_dict = {
             "name": row[0],
             "team": row[1],
-            "uni": row[2],
-            "intro": row[3],
+            "role": row[2],
+            "uni": row[3],
+            "intro": row[4],
+            "img": row[5] if row[5] is not None else "".encode()
         }
         data_dict_list.append(data_dict)
         print(data_dict)
 
-    return render_template('index.html',global_dict_list=data_dict_list)
+    return render_template('test.html',global_dict_list=data_dict_list)
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -44,10 +47,15 @@ def submit():
         post = request.form['post']
         university = request.form['university']
         introduction = request.form['introduction']
+        img = request.files['img']
+        if img:
+            save_filename = "app/static/images/"+name+".jpg"
+            upload_filename = name+".jpg"
+            img.save(save_filename)
 
         # MySQLにデータを挿入するSQLクエリを実行
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO members_table (name, team, role, univ_faculty, self_intro) VALUES (%s, %s, %s, %s, %s)", (name, team, post, university, introduction))
+        cursor.execute("INSERT INTO members_table (name, team, role, univ_faculty, self_intro, img) VALUES (%s, %s, %s, %s, %s, %s)", (name, team, post, university, introduction, upload_filename))
         conn.commit()
         cursor.close()
 

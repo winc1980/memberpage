@@ -5,7 +5,7 @@ services:
     volumes:
       - ./flask:/app
     ports:
-      - 5005:5000
+      - 5000:5000
     links:
       - db
     tty: true
@@ -14,7 +14,6 @@ services:
 
   db:
     image: mysql:5.7
-    platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: flask
