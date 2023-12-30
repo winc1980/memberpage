@@ -61,23 +61,25 @@
                         <p class="teamName">HPチーム</p>
                     </div>
                     <div class="profileHpBoxes">
-                        {% for global_dict in global_dict_list %}
+                    {% for global_dict in global_dict_list %}
+                        {% if global_dict["team"] == "hp" %}
                         <div class="profile_box">
                             <div class="image">
-                                <img src="">
+                                <img src="../static/images/{{global_dict["img"].decode("UTF-8")}}">
                             </div>
                             <div class="profile_texts">
                                 <h1>{{global_dict["name"]}}</h1>
                                 <div class="flex-wrapper">
-                                    <h2 class="team">HPチーム</h2>
-                                    <h2>メンバー</h2>
+                                    <h2 class="team">{{global_dict["team"]}}</h2>
+                                    <h2>{{global_dict["member"]}}</h2>
                                 </div>
                                 <h3>{{global_dict["uni"]}}</h3>
                                 <button>詳細</button>
                             </div>
                         </div>
-                        {% endfor %}
-                        <!-- カードここから -->
+                        {% endif %}
+                    {% endfor %}
+                    <!-- カードここから -->
                         <div id="mask" class="hidden"></div>
                         <section id="modal" class="hidden">
                             <div class="card">
